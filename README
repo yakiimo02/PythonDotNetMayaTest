@@ -1,0 +1,25 @@
+PythonDotNetMayaTest README
+2011/10/01
+by yakiimo02
+
+A simple test of running Python.NET inside of Maya.
+
+Made possible by the information in the tutorial http://tech-artists.org/wiki/PythonNetInMaya
+
+Code:
+The PythonDotNetTest folder contains the C# .NET WinForm control. DotNetTestMaya.py is the Maya plugin script.
+
+Install:
+1) Installing Python.NET binaries.
+Download the Python.NET from its sourceforge repository. http://pythonnet.sourceforge.net/
+A binary file zip can be downloaded, but for my tests I compiled "Any CPU" and "x64" binaries from source. 
+Copy Python.Runtime.dll and clr.pyd into the Maya bin folder (e.g. C:\Program Files\Autodesk\Maya2012\bin).
+2) Load DotNetTestMaya.py python script plugin.
+*1* Load DotNetTestMayaCmd script plugin and type
+
+import maya
+maya.cmds.DotNetTestMayaCmd()
+
+*2* or just load the script in the script editor and call
+
+runDotNetTest()
