@@ -16,10 +16,7 @@ A binary file zip can be downloaded, but for my tests I compiled "Any CPU" and "
 Copy Python.Runtime.dll and clr.pyd into the Maya bin folder (e.g. C:\Program Files\Autodesk\Maya2012\bin).
 2) Load DotNetTestMaya.py python script plugin.
 *1* Load DotNetTestMayaCmd script plugin and type
-
 import maya
 maya.cmds.DotNetTestMayaCmd()
-
 *2* or just load the script in the script editor and call
-
 runDotNetTest()
