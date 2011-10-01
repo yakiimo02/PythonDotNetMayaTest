@@ -14,7 +14,9 @@ Install:
 Download the Python.NET from its sourceforge repository. http://pythonnet.sourceforge.net/
 A binary file zip can be downloaded, but for my tests I compiled "Any CPU" and "x64" binaries from source. 
 Copy Python.Runtime.dll and clr.pyd into the Maya bin folder (e.g. C:\Program Files\Autodesk\Maya2012\bin).
-2) Load DotNetTestMaya.py python script plugin.
+2) Compile the PythonDotNetTest C# .NET WinForm Control and modify DotNetTestMaya.py to point to the compiled 
+PythonDotNetTest.dll folder path.
+3) Load DotNetTestMaya.py python script plugin.
 *1* Load DotNetTestMayaCmd script plugin and type
 import maya
 maya.cmds.DotNetTestMayaCmd()
