@@ -10,6 +10,13 @@ Notes:
         Python.NET runs as a Modal dialog in its own GUI thread.
         Since the Maya command architecture is not thread-safe, I run Maya
         commands from the main Maya thread using executeInMainThreadWithResult.
+        I experimented with running maya.cmds from the GUI thread and the cmds
+        seem to run without problems except for maya.cmds.listRelatives, which
+        would display a Python.Runtime.PythonException message inside a .NET
+        message box and not run (no Maya crash, just a fail error message box.)
+
+        Maya 2011 help section on "Python and threading"
+        http://autodesk.com/us/maya/2011help/index.html?url=./files/Python_Python_and_threading.htm,topicNumber=d0e194482
 
 Usage:
         1)
@@ -79,7 +86,7 @@ class DotNetTest():
     def updateGeometryInfo(self,*args):
         """ Update the Test WinForm DataGridView with the Maya scene's geometryShape translation information. """
         self.wf.dataGridView.Rows.Clear()
-        allGeoms = maya.cmds.ls( type='geometryShape' )
+        allGeoms = maya.utils.executeInMainThreadWithResult( maya.cmds.ls, type='geometryShape' )
         for geoms in allGeoms:
             transform = maya.utils.executeInMainThreadWithResult( getTransform, geoms )
             self.wf.AddRow( transform,
